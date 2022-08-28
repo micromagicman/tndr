@@ -1,0 +1,1 @@
+export const findNode = ( selector ) => document.querySelector( selector );

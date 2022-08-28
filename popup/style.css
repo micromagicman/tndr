@@ -1,0 +1,18 @@
+body {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.control-button {
+    background-color: #fafafa;
+    color: #343434;
+    border: 1px solid #cecece;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px -5px rgba(51, 51, 51, .75);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.control-button:active {
+    transform: scale(.98);
+}
