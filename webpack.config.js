@@ -2,8 +2,9 @@ const path = require( 'path' );
 
 module.exports = {
   entry: {
-    background: './src/content/index.js',
-    popup: './src/popup/index.js'
+    content: './src/content/swiping.js',
+    popup: './src/popup.js',
+    background: './src/background.js',
   },
   output: {
     path: path.resolve( __dirname, 'build' ),

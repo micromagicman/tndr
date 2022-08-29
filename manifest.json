@@ -1,15 +1,21 @@
 {
   "name": "tndr",
   "description": "Google chrome Tinder helper",
-  "version": "1.0",
+  "version": "0.0.1",
   "manifest_version": 3,
   "content_scripts": [
     {
       "matches": ["https://tinder.com/*"],
-      "js": ["build/tndr.background.js"]
+      "js": ["build/tndr.content.js"]
     }
   ],
   "action": {
     "default_popup": "popup/index.html"
-  }
+  },
+  "background": {
+    "service_worker": "build/tndr.background.js"
+  },
+  "permissions": [
+    "storage"
+  ]
 }
