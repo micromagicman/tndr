@@ -25,7 +25,7 @@ export const get = ( key ) => {
       if ( chrome.runtime.lastError ) {
         return reject( chrome.runtime.lastError );
       }
-      return resolve( item );
+      return resolve( item[key] );
     } );
   } );
 };
