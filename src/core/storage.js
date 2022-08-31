@@ -5,10 +5,10 @@ const initialState = {
   swipingInterval: null,
 };
 
-export const initializeStorage = () =>
+const initializeStorage = () =>
     storage.set( initialState );
 
-export const save = ( key, value ) => {
+const save = ( key, value ) => {
   return new Promise( ( resolve, reject ) => {
     storage.set( { [key]: value }, () => {
       if ( chrome.runtime.lastError ) {
@@ -19,7 +19,7 @@ export const save = ( key, value ) => {
   } );
 };
 
-export const get = ( key ) => {
+const get = ( key ) => {
   return new Promise( ( resolve, reject ) => {
     storage.get( [key], ( item ) => {
       if ( chrome.runtime.lastError ) {
@@ -28,4 +28,10 @@ export const get = ( key ) => {
       return resolve( item[key] );
     } );
   } );
+};
+
+export {
+  initializeStorage,
+  save,
+  get,
 };

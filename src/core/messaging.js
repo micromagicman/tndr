@@ -1,3 +1,5 @@
+import { getCurrentTab } from './tabs';
+
 const listeners = {};
 
 chrome.runtime.onMessage.addListener( ( message, sender, sendResponse ) => {
@@ -6,15 +8,19 @@ chrome.runtime.onMessage.addListener( ( message, sender, sendResponse ) => {
   }
 } );
 
-export const sendMessage = ( type, message ) => {
-  chrome.tabs.query( { active: true, currentWindow: true }, function( tabs ) {
-    chrome.tabs.sendMessage( tabs[0].id, { type, ...message } );
-  } );
+const sendMessage = async ( type, message ) => {
+  const { id } = await getCurrentTab();
+  chrome.tabs.sendMessage( id, { type, ...message } );
 };
 
-export const addMessageListener = ( type, callback ) => {
+const addMessageListener = ( type, callback ) => {
   if ( !listeners.hasOwnProperty( type ) ) {
     listeners[type] = [];
   }
   listeners[type].push( callback );
+};
+
+export {
+  sendMessage,
+  addMessageListener,
 };

@@ -15,3 +15,7 @@ addMessageListener( 'swipe', async ( { swiping } ) => {
   }
   await save( 'swipingInterval', swiping ? createInterval() : null );
 } );
+
+addEventListener( 'beforeunload', async () => {
+  await save( 'swiping', false );
+} );

@@ -15,6 +15,25 @@ body {
     margin: 0.8rem 1rem 1rem 0.8rem;
 }
 
+#tndr-block-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(51, 51, 51, .9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tndr-block-layer > h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: normal;
+}
+
 .tndr-section__header {
     padding: 0.5rem 0 0.5rem 0.5rem;
     border-bottom: 1px solid #ffbcc3;
