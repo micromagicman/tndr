@@ -8,17 +8,17 @@ chrome.runtime.onMessage.addListener( ( message, sender, sendResponse ) => {
   }
 } );
 
-const sendMessage = async ( type, message ) => {
+async function sendMessage ( type, message ) {
   const { id } = await getCurrentTab();
   chrome.tabs.sendMessage( id, { type, ...message } );
-};
+}
 
-const addMessageListener = ( type, callback ) => {
+async function addMessageListener( type, callback ) {
   if ( !listeners.hasOwnProperty( type ) ) {
     listeners[type] = [];
   }
   listeners[type].push( callback );
-};
+}
 
 export {
   sendMessage,

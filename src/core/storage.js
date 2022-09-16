@@ -1,14 +1,16 @@
-const storage = chrome.storage.sync;
+import { SECOND_MS } from './interval';
 
+const storage = chrome.storage.sync;
 const initialState = {
   swiping: false,
-  swipingInterval: null,
+  swipingTimeout: SECOND_MS,
 };
 
-const initializeStorage = () =>
-    storage.set( initialState );
+function initializeStorage() {
+  storage.set( initialState );
+}
 
-const save = ( key, value ) => {
+function save( key, value ) {
   return new Promise( ( resolve, reject ) => {
     storage.set( { [key]: value }, () => {
       if ( chrome.runtime.lastError ) {
@@ -17,9 +19,9 @@ const save = ( key, value ) => {
       return resolve( value );
     } );
   } );
-};
+}
 
-const get = ( key ) => {
+function get( key, defaultValue = null ) {
   return new Promise( ( resolve, reject ) => {
     storage.get( [key], ( item ) => {
       if ( chrome.runtime.lastError ) {
@@ -28,7 +30,7 @@ const get = ( key ) => {
       return resolve( item[key] );
     } );
   } );
-};
+}
 
 export {
   initializeStorage,

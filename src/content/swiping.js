@@ -1,19 +1,25 @@
 import { SELECTORS }          from '../core/constants';
 import { addMessageListener } from '../core/messaging';
 import { get, save }          from '../core/storage';
-import { findNode }           from '../util/dom';
+import { node }               from '../util/dom';
 
-const createInterval = () =>
-    setInterval( () => {
-      findNode( SELECTORS.LIKE_BUTTON ).click();
-    }, 1000 );
+function createInterval( timeout ) {
+  return setInterval( () => {
+    const likeButton = node( SELECTORS.LIKE_BUTTON );
+    if ( likeButton.exists() ) {
+      likeButton.click();
+    } else {
+      console.warn( 'Like button not found!' );
+    }
+  }, timeout );
+}
 
-addMessageListener( 'swipe', async ( { swiping } ) => {
+addMessageListener( 'swipe', async ( { swiping, swipingTimeout } ) => {
   const swipingInterval = await get( 'swipingInterval' );
   if ( swipingInterval ) {
     clearInterval( swipingInterval );
   }
-  await save( 'swipingInterval', swiping ? createInterval() : null );
+  await save( 'swipingInterval', swiping ? createInterval( swipingTimeout ) : null );
 } );
 
 addEventListener( 'beforeunload', async () => {
