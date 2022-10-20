@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TNDR</title>
+</head>
+<body>
+<div id="tndr">
+    <div id="tndr-block-layer">
+        <h3>Open this when you are on tinder.com</h3>
+    </div>
+    <section class="tndr-section">
+        <header class="tndr-section__header">
+            <h3>Swipes</h3>
+        </header>
+        <div class="tndr-section__content" id="tndr-section-swipes">
+            <div class="tndr-section__content__box">
+                <button id="play-swipes" class="tndr-button"></button>
+            </div>
+            <div class="tndr-section__content__box">
+                <label for="swiping-interval">Swiping interval</label>
+                <input id="swiping-interval" type="range" value="40" min="1" max="100"/>
+                <output id="swiping-interval-value">70</output>
+            </div>
+        </div>
+    </section>
+    <footer class="tndr-footer">
+        <div class="tndr-footer__content">
+            <a href="<%= donateLink %>" target="_blank">Support us</a>
+            <span class="dollar">$</span>
+        </div>
+    </footer>
+</div>
+<script src="tndr.<%= scriptName %>.js"></script>
+</body>
+</html>

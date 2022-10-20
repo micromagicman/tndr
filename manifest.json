@@ -10,7 +10,7 @@
     }
   ],
   "action": {
-    "default_popup": "/popup/index.html",
+    "default_popup": "/build/popup.html",
     "default_icon": {
       "16": "/images/tinder16.png",
       "32": "/images/tinder32.png",
