@@ -3,6 +3,12 @@
   "description": "Google chrome Tinder helper",
   "version": "0.1.0",
   "manifest_version": 3,
+  "icons": {
+    "16": "/icons/tinder16.png",
+    "32": "/icons/tinder32.png",
+    "64": "/icons/tinder64.png",
+    "128": "/icons/tinder128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://tinder.com/*"],
@@ -14,7 +20,7 @@
     "default_icon": {
       "16": "/icons/tinder16.png",
       "32": "/icons/tinder32.png",
-      "48": "/icons/tinder48.png",
+      "64": "/icons/tinder64.png",
       "128": "/icons/tinder128.png"
     }
   },
