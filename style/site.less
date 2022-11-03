@@ -1,0 +1,204 @@
+@import 'variables';
+@import 'common';
+
+body {
+    font-family: 'Signika Negative', Verdana, Arial, sans-serif;
+    background-color: #EAEAEA;
+    color: #5E5E5E;
+}
+
+header {
+    padding: 1rem 0;
+}
+
+nav {
+    display: grid;
+    grid-template-areas: 'A B C';
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+}
+
+ol {
+    li {
+        margin-bottom: 1rem;
+    }
+}
+
+a {
+    font-weight: bold;
+    font-family: 'Red Hat Display', Verdana, Arial, sans-serif;
+}
+
+img:not(.viewer-move) {
+    cursor: zoom-in;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border-bottom: 2px solid #989898;
+
+    &:hover {
+        border-color: @color-site;
+    }
+}
+
+.title(@shadow-pad) {
+    color: @color-site;
+    text-shadow: @shadow-pad @shadow-pad 0 rgba(0, 0, 0, 0.2);
+
+    & > a {
+        color: @color-site;
+    }
+}
+
+.title {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.6rem;
+    .title(1px);
+}
+
+#logo, #menu {
+    display: block;
+}
+
+#logo {
+    .title(3px);
+    grid-area: A;
+
+    & > a {
+        font-family: 'Bebas Neue', cursive;
+    }
+
+    font-size: 2rem;
+    letter-spacing: 1rem;
+}
+
+#menu {
+    grid-area: C;
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+
+    & > li {
+        margin-right: 1rem;
+
+        & > a {
+            font-size: .9rem;
+            color: darken(@color-site, 10%);
+            display: block;
+            padding: .5rem 1rem;
+            border-radius: 3px;
+            border: 1px solid @color-site;
+            border-bottom-width: 3px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
+
+            &:hover, &:active {
+                background-color: @color-site;
+                color: @color-white;
+                border-color: darken(@color-site, 5%);
+            }
+        }
+    }
+}
+
+.site {
+    &__block {
+        max-width: 964px;
+        margin: 0 auto;
+    }
+}
+
+.link {
+    text-decoration: none;
+
+    &__download {
+        position: relative;
+        @download-color: @color-site;
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: @color-site;
+        color: @color-white;
+        font-size: .9rem;
+        border-bottom: 2px solid darken(@color-site, 10%);
+        border-radius: 3px;
+        box-shadow: 0 5px 10px -3px rgba(51, 51, 51, .75);
+
+        &--chrome {
+            &::before {
+                left: -70px;
+                top: 0;
+                position: absolute;
+                width: 47px;
+                height: 47px;
+                border-radius: 50%;
+                box-shadow: 5px 5px 3px rgba(0, 0, 0, .2);
+                content: '';
+                display: inline-block;
+                background:url('../assets/icons/chrome.png') center no-repeat;
+                background-size: 47px;
+            }
+        }
+    }
+}
+
+.howto {
+    &__step {
+        max-width: 964px;
+        display: flex;
+
+        &--left {
+            flex-direction: row-reverse;
+        }
+
+        &__block {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:nth-child(2n + 1) {
+                width: 50%;
+            }
+
+            &:nth-child(2n) {
+                width: 50%;
+            }
+
+            & > img {
+                width: 100%;
+            }
+
+            & > ol {
+                & > li {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}
+
+.guide {
+    &__text {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+}
+
+.download {
+    &__block {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.accent {
+    color: @color-site;
+    text-transform: uppercase;
+    text-decoration: none;
+    &--base {
+        text-transform: none;
+    }
+}
