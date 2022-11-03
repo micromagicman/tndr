@@ -9,6 +9,6 @@ RUN apt-get update -y \
 RUN rm -rf ./*
 COPY ./build/site .
 COPY ./build/extension ./tndr
-RUN zip -j tndr.zip ./tndr/* && rm -rf ./tndr
+RUN cd tndr && zip -r ../tndr.zip . && cd .. && rm -rf ./tndr
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
