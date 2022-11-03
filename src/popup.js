@@ -16,7 +16,7 @@ const domManager = {
   swiping( swiping ) {
     const image = swiping ? ICONS.STOP_SWIPES : ICONS.START_SWIPES;
     this.swipeIntervalRange.disable( swiping );
-    this.likeButton.style( { backgroundImage: `url(../icons/${ image })` } );
+    this.likeButton.style( { backgroundImage: `url(/icons/${ image })` } );
   },
 
   hideWidgets( hide ) {

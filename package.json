@@ -7,7 +7,7 @@
     "clean": "rm -rf build && docker system prune -a --volumes",
     "build": "webpack-cli --mode=production",
     "dev": "webpack-cli --mode=development --watch",
-    "site": "npm run clean && npm run build && docker build -t tndr-site -f ./docker/Dockerfile . && docker run -v=./build/site:/usr/share/nginx/html --rm -d -p 80:80 tndr-site"
+    "site": "npm run clean && npm run build && docker build -t tndr-site -f ./docker/Dockerfile . && docker run --rm -d -p 80:80 tndr-site"
   },
   "repository": {
     "type": "git",

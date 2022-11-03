@@ -6,11 +6,11 @@
   "content_scripts": [
     {
       "matches": ["https://tinder.com/*"],
-      "js": ["tndr.content.js"]
+      "js": ["/tndr.content.js"]
     }
   ],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "/popup.html",
     "default_icon": {
       "16": "/icons/tinder16.png",
       "32": "/icons/tinder32.png",
@@ -19,7 +19,7 @@
     }
   },
   "background": {
-    "service_worker": "tndr.background.js"
+    "service_worker": "/tndr.background.js"
   },
   "permissions": [
     "tabs",
