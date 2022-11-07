@@ -99,7 +99,10 @@ module.exports = [
     plugins: [
       ...COMMON_CONFIG.plugins,
       new HtmlWebpackPlugin( {
-        minify: true,
+        minify: {
+          collapseWhitespace: true,
+          minifyJS: true
+        },
         template: 'templates/site.html',
         filename: 'index.html',
         inject: false,
